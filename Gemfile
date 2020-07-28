@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'rack-cors'
 
+gem 'faraday'
+
 gem 'active_model_serializers'
 
 gem 'activerecord-reset-pk-sequence'
