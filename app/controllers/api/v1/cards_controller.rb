@@ -1,5 +1,11 @@
 class Api::V1::CardsController < ApplicationController
     def index
-      render json: Card.all
+      @cards = Card.all
+      render json: @cards
+    end
+
+    def show
+     @card = Card.find_by_id(params[:id])
+     render json: @card
     end
   end

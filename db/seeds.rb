@@ -5,9 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Card.destroy_all
 
-require 'rest-client'
+@resp = Faraday.get 'https://db.ygoprodeck.com/api/v7/cardinfo.php'
+card_data = JSON.parse(@resp.body)
+cards = card_data["data"]
 
-rm = RestClient.get 'https://db.ygoprodeck.com/api/v7/cardinfo.php'
-byebug
-0
+cards.each do |card|
+    Card.create!(
+        :name => card['name'],
+        :id => card['id'],
+        :desc => card['desc'],
+        :cardtype => card['type'],
+        :atk => card['atk'],
+        :def => card['def'],
+        :level => card['level'],
+        :race => card['race'],
+        :archetype => card['archetype'],
+        :cardattribute => card['attribute'],
+    )
+end

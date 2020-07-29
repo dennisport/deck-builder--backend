@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'rack-cors'
 
+gem 'rake'
+
 gem 'rest-client'
 
 gem 'faraday'

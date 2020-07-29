@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_201536) do
+ActiveRecord::Schema.define(version: 2020_07_29_025143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.string "name"
+    t.text "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "type"
+    t.text "cardtype"
     t.text "desc"
     t.string "race"
     t.string "archetype"
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(version: 2020_07_28_201536) do
     t.string "set_rarity"
     t.integer "set_price"
     t.string "image_url"
+    t.integer "atk"
+    t.integer "def"
+    t.integer "level"
+    t.string "cardattribute"
   end
 
   create_table "decks", force: :cascade do |t|
