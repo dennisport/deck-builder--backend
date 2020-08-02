@@ -8,8 +8,6 @@ Rails.application.routes.draw do
 
   resources :decks
 
-  post '/decks/:id/:card' => 'decks#add_card'
-  get '/decks/:id/:card' => 'decks#delete_card'
 
 
   resources :decks do

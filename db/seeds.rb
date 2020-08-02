@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Card.destroy_all
 
+deck1 = Deck.create(name: 'firstDeck')
+
 @resp = Faraday.get 'https://db.ygoprodeck.com/api/v7/cardinfo.php'
 card_data = JSON.parse(@resp.body)
 cards = card_data["data"]
@@ -23,5 +25,6 @@ cards.each do |card|
         :race => card['race'],
         :archetype => card['archetype'],
         :cardattribute => card['attribute'],
-    )
+        :image_url => card["card_images"][0]
+        )
 end

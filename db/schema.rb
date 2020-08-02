@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_025143) do
+ActiveRecord::Schema.define(version: 2020_07_30_083129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,12 @@ ActiveRecord::Schema.define(version: 2020_07_29_025143) do
     t.text "set_name"
     t.string "set_rarity"
     t.integer "set_price"
-    t.string "image_url"
+    t.text "image_url"
     t.integer "atk"
     t.integer "def"
     t.integer "level"
     t.string "cardattribute"
+    t.integer "deck_id"
   end
 
   create_table "decks", force: :cascade do |t|
